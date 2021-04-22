@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-04-20 16:37:09
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-20 19:07:40
+ * @Last Modified time: 2021-04-22 14:21:09
  */
 'use strict';
 
@@ -42,6 +42,26 @@ module.exports = {
       {
         test:/\.vue$/,
         use:['vue-loader']
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader']
+      },
+      {
+        test:/\.sass$/,
+        use:['style-loader','css-loader','sass-loader']
+      },
+      {
+        test:/\.(wofff2?|eot|ttf|otf|woff)(\?.*)?$/,
+        use:['url-loader']
+      },
+      {
+        test: /\.(jpg|png|gif|bmp|jpeg|svg)$/,
+        use: ['file-loader']
+      },
+      {
+        test:/\.json$/,
+        use:['json-loader']
       }
     ]
   }
