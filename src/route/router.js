@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-04-20 19:06:27
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-22 15:40:00
+ * @Last Modified time: 2021-04-23 12:01:10
  */
 'use strict';
 
@@ -19,28 +19,26 @@ import Register from '../components/Register.vue'
           {
             path:'/',
             redirect:'/login',
-            component:Login
+            component:Login,
+            children:[
+              {
+                path:'sign',
+                name:'Sign',
+                component:Sign
+              },
+              {
+                path:'register',
+                name:'Register',
+                component:Register
+              }
+            ]
           },
           {
             path:'/home',
             name:'Home',
             component:Home
           },
-          {
-            path:'/login',
-            name:'Login',
-            component:Login
-          },
-          {
-            path:'/sign',
-            name:'Sign',
-            component:Sign
-          },
-          {
-            path:'/register',
-            name:'Register',
-            component:Register
-          }
+
         ]
   })
 

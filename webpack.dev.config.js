@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-04-20 16:37:09
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-22 14:21:09
+ * @Last Modified time: 2021-04-23 09:46:33
  */
 'use strict';
 
@@ -48,7 +48,7 @@ module.exports = {
         use:['style-loader','css-loader']
       },
       {
-        test:/\.sass$/,
+        test:/\.scss$/,
         use:['style-loader','css-loader','sass-loader']
       },
       {

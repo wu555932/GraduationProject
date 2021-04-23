@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-04-22 09:38:22
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-22 14:44:45
+ * @Last Modified time: 2021-04-23 09:49:47
  */
 <template>
         <el-container class="el-container">
@@ -29,7 +29,7 @@
     }
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .el-container {
     height: 500px;
 
@@ -43,7 +43,7 @@
     }
     .el-aside {
       width:200px;
-   
+
       color:#333;
     }
     .el-main {}

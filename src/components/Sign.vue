@@ -2,24 +2,26 @@
  * @Author: Your name
  * @Date:   2021-04-22 10:59:31
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-22 11:17:19
+ * @Last Modified time: 2021-04-23 14:25:28
  */
 <template>
-        <div class="log">
-          <el-input
-          v-model="user"
-          aria-placeholder="请输入学号">
-          </el-input>
-          <el-input
-          aria-placeholder="请输入密码"
-          show-password
-          v-model="password"></el-input>
-          <el-button round :click="login">登录</el-button>
+        <div class="sign">
+          <div class="wrap">
+            <el-input class="input"
+              v-model="user"
+              placeholder="请输入学号"
+              size="mini"></el-input>
+            <el-input class="input"
+              v-model="password"
+              placeholder="请输入密码"
+              show-password
+              size="mini"></el-input>
+            <el-button @click="login">登录</el-button>
+          </div>
         </div>
 </template>
 
-<style>
-</style>
+
 
 <script>
     export default {
@@ -32,7 +34,7 @@
         methods: {
           login() {
             if(this.user === 'admin' && this.password === '123456'){
-              this.$route.push({path:'/home'})
+              this.$router.push({path:'/home'})
             } else {
               this.$message({
                 showClose:true,
@@ -45,3 +47,18 @@
     }
 </script>
 
+<style lang="scss" scoped>
+  .sign {
+    position: absolute;
+    .wrap {
+      position: relative;
+      top:100px;
+      left: 150px;
+    }
+    .input {
+      width: 220px;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+</style>

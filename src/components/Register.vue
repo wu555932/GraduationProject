@@ -2,32 +2,53 @@
  * @Author: Your name
  * @Date:   2021-04-22 10:59:45
  * @Last Modified by:   Your name
- * @Last Modified time: 2021-04-22 13:36:50
+ * @Last Modified time: 2021-04-23 14:00:25
  */
 <template>
           <div class="register">
-            <el-input
-            v-model="user"
-            aria-placeholder="请输入用户名"></el-input>
-            <el-input
-            v-model="phone"
-            aria-placeholder="请输入手机号"></el-input>
-            <el-input
-            v-model="passwordOne"
-            aria-placeholder="请输入密码"></el-input>
-            <el-input
-            v-model="passwordTwo"
-            aria-placeholder="请确认密码"></el-input>
-            <el-button round :click="register">注册</el-button>
+            <div class="wrap">
+              <el-input
+                v-model="user"
+                placeholder="请输入用户名"
+                class="input"></el-input>
+              <el-input
+                v-model="phone"
+                placeholder="请输入手机号"
+                class="input"></el-input>
+              <el-input
+                v-model="passwordOne"
+                placeholder="请输入密码"
+                class="input"></el-input>
+              <el-input
+                v-model="passwordTwo"
+                placeholder="请确认密码"
+                class="input"></el-input>
+              <el-button round :click="register">注册</el-button>
+            </div>
+
           </div>
 
 </template>
 
-<style>
+<style lang="scss" scoped>
+  .register {
+    position: absolute;
+    .wrap {
+      position: relative;
+      top: 20px;
+      left: 150px;
+      .input {
+        width: 220px;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
 </style>
 
 <script>
     export default {
+        name:'Register',
         data() {
             return {
               user:'',
