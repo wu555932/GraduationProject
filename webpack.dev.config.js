@@ -8,31 +8,24 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const devserver = require('webpack-dev-server')
+const devServer = require('webpack-dev-server')
 const Htmlwebpackplugin = require('html-webpack-plugin')
 const vueloaderplugin = require('vue-loader/lib/plugin')
+
 
 module.exports = {
 
   entry: './src/main.js',
+
   output: {
     path: path.resolve(__dirname, './src/dist'),
     filename: 'bundle.js'
   },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        devserver: {
-          open: true,
-          port: 3000,
-          contentBase: './src/dist'
-        },
-      }
-    }),
     new Htmlwebpackplugin({
-      template:path.join(__dirname,'./src/index.html'),
-      filename:'index.html'
+      template: path.join(__dirname, './src/index.html'),
+      filename: 'index.html'
     }),
     new vueloaderplugin()
   ],
@@ -40,30 +33,36 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/\.vue$/,
-        use:['vue-loader']
+        test: /\.vue$/,
+        use: ['vue-loader']
       },
       {
-        test:/\.css$/,
-        use:['style-loader','css-loader']
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
-        test:/\.scss$/,
-        use:['style-loader','css-loader','sass-loader']
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test:/\.(wofff2?|eot|ttf|otf|woff)(\?.*)?$/,
-        use:['url-loader']
+        test: /\.(wofff2?|eot|ttf|otf|woff)(\?.*)?$/,
+        use: ['url-loader']
       },
       {
         test: /\.(jpg|png|gif|bmp|jpeg|svg)$/,
         use: ['file-loader']
       },
       {
-        test:/\.json$/,
-        use:['json-loader']
+        test: /\.json$/,
+        use: ['json-loader']
       }
     ]
-  }
+  },
+  devServer: {
+    open: true,
+    port: 3000,
+    contentBase: path.resolve(__dirname,'./public'),
+    hot: true
+  },
 
 }

@@ -7,19 +7,17 @@
 
 <template>
   <div id="app">
-    <Login></Login>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Login from './Login.vue'
 
 export default {
-  components:{
-    Login
-  },
   methods:{
 
+  },
+  mounted() {
   }
 
 

@@ -25,6 +25,7 @@
 
 <script>
     export default {
+      name:"Sign",
         data() {
             return {
               user:'',
@@ -33,7 +34,29 @@
         },
         methods: {
           login() {
-            if(this.user === 'admin' && this.password === '123456'){
+            let user
+            let password
+            if(localStorage.getItem('userinfo')){
+                   user = JSON.parse(localStorage.getItem('userinfo')).user
+                   password = JSON.parse(localStorage.getItem('userinfo')).passwordOne
+            } else {
+                   user = ''
+                   password = ''
+            }
+            
+            
+
+            if((this.user === user && this.password === password)||(this.user === 'admin' && this.password === '123456')){
+              let userinfo = JSON.parse(localStorage.getItem('userinfo'))
+                  userinfo.user = this.user
+                  userinfo.password = this.password
+                  localStorage.setItem('userinfo',JSON.stringify(userinfo))
+              this.$router.push({path:'/user'})
+            } else if(this.user === 'root' && this.password === '1234'){
+               let userinfo = JSON.parse(localStorage.getItem('userinfo'))
+                  userinfo.user = this.user
+                  userinfo.password = this.password
+                  localStorage.setItem('userinfo',JSON.stringify(userinfo))
               this.$router.push({path:'/home'})
             } else {
               this.$message({

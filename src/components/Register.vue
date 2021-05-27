@@ -8,22 +8,22 @@
           <div class="register">
             <div class="wrap">
               <el-input
-                v-model="user"
+                v-model=" userinfo.user"
                 placeholder="请输入用户名"
                 class="input"></el-input>
               <el-input
-                v-model="phone"
+                v-model=" userinfo.phone"
                 placeholder="请输入手机号"
                 class="input"></el-input>
               <el-input
-                v-model="passwordOne"
+                v-model=" userinfo.passwordOne"
                 placeholder="请输入密码"
                 class="input"></el-input>
               <el-input
-                v-model="passwordTwo"
+                v-model=" userinfo.passwordTwo"
                 placeholder="请确认密码"
                 class="input"></el-input>
-              <el-button round :click="register">注册</el-button>
+              <el-button round @click="register">注册</el-button>
             </div>
 
           </div>
@@ -51,26 +51,32 @@
         name:'Register',
         data() {
             return {
-              user:'',
-              phone:'',
-              passwordOne:'',
-              passwordTwo:''
+              userinfo:{
+                user:'',
+                phone:'',
+                passwordOne:'',
+                passwordTwo:'',
+                password:''
+              }
             };
         },
         methods: {
           register() {
-            if(this.passwordOne !== this.passwordTwo) {
+            if(this.userinfo.passwordOne !== this.userinfo.passwordTwo) {
               this.$message({
                 showClose:true,
                 message:'密码输入不一致，请重新输入！',
                 type:'warning'
               })
             } else{
-              this.message({
+              this.userinfo.password = this.userinfo.passwordOne
+              localStorage.setItem('userinfo',JSON.stringify(this.userinfo))
+              this.$message({
                 showClose:true,
                 message:'注册成功！',
                 type:'success'
               })
+              this.$router.push('/login/sign')
             }
           }
         }

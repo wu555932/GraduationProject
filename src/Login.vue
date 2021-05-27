@@ -9,8 +9,8 @@
           <h1 class="title">座位预约管理系统1.0</h1>
             <div class="wrap-content">
               <div class="login">
-                <router-link to="/sign" class="sign">登录</router-link>
-                <router-link to="/register" class="register">注册</router-link>
+                <router-link to="/login/sign" class="sign">登录</router-link>
+                <router-link to="/login/register" class="register">注册</router-link>
                 <router-view ></router-view>
               </div>
             </div>
@@ -20,12 +20,8 @@
 
 
 <script>
-
     export default {
       name:'Login',
-      components:{
-
-      },
         data() {
             return {};
         },
